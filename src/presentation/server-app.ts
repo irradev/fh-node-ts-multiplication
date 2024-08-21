@@ -23,7 +23,8 @@ export class ServerApp {
         });
         if (showTable) console.log(table);
 
-        if (wasCreated) console.log('File created!');
+        if (wasCreated) console.log('File created!')
+        else console.error('File not created!')
 
     }
 }

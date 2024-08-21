@@ -1,6 +1,6 @@
 
 import fs from 'fs';
-import { argsPlugin } from './config/plugins/args.plugin';
+import { ArgsPlugin } from './config/plugins/args.plugin';
 
 interface Props {
     base: number;
@@ -29,6 +29,9 @@ const generateMultiplicationTable = ({ base, limit, showTable }: Props) => {
     console.log('File created!')
 }
 
-const { b:base, l:limit, s:showTable } = argsPlugin;
-
-generateMultiplicationTable({ base, limit, showTable });
+const argsPlugin = new ArgsPlugin();
+const args = argsPlugin.getArgs();
+if (args) {
+    const { b:base, l:limit, s:showTable } = args;
+    generateMultiplicationTable({ base, limit, showTable });
+};

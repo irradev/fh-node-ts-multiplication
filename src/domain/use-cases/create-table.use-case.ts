@@ -21,8 +21,10 @@ export class CreateTable implements CreateTableUseCase {
         template += '====================================\n\n';
 
         for (let i = 1; i <= limit; i++) {
-            template += `${base} x ${i} = ${base * i}\n`;
+            template += `${base} x ${i} = ${base * i}`;
+            if (i < limit) template += '\n';
         }
+
         return template;
     }
 }
